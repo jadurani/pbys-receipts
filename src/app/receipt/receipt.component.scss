@@ -1,0 +1,129 @@
+.receipt-container {
+  padding: 10mm 14mm;
+  border: 1px solid red;
+  font-size: 4mm;
+  width: inherit;
+  height: 139.7mm;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.org-logo {
+  max-height: 24mm;
+  max-width: 24mm;
+}
+
+.page-header {
+  padding: 2mm 1mm;
+}
+
+.page-header__title {
+  font-size: 8mm;
+  font-weight: 600;
+}
+
+.page-header__subtitle {
+  font-size: 4mm;
+}
+
+.doc-title {
+  font-size: 6mm;
+  font-weight: 500;
+  text-align: center;
+}
+
+.receipt-number {
+  text-align: right;
+  padding-right: 15mm;
+  margin-top: 4mm;
+}
+
+.date-container {
+  width: 30%;
+  margin-top: 4mm;
+}
+
+.date-blank {
+  width: 90%;
+}
+
+.blank {
+  border-bottom: solid 1px black;
+  margin-left: 1mm;
+}
+
+.relative-container {
+  position: relative;
+}
+
+.absolute-container {
+  position: absolute;
+}
+
+.absolute-right {
+  right: 0;
+}
+
+.auth-sig-text {
+  bottom: -14mm;
+  right: 8mm;
+}
+
+.receipt-body {
+  margin-top: 8mm;
+}
+
+.body-text-content {
+  flex: 1;
+  margin-top: 10mm;
+  padding-left: 2mm;
+}
+
+.body-text-content__text-1 {
+  padding-left: 6mm;
+}
+
+.body-text-content__text-2 {
+  width: 35%;
+  padding-left: 2mm;
+}
+
+.table-container {
+  width: 28%;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table td {
+    border: .5px solid #000;
+  }
+
+  td {
+    padding: 1.5mm 2mm;
+  }
+
+  .td-empty {
+    width: 12mm;
+  }
+}
+
+.donation-type-container {
+  width: 50%;
+}
+
+.donation-type::before {
+  content: '\2610';
+  padding-right: 2mm;
+}
