@@ -1,7 +1,21 @@
-<button (click)="captureScreen()">
-  Capture Screen
-</button>
+<div class="selection-container">
+  <div>
+    <div>
+      <input type="number" min="200" [(ngModel)]="startNum" />
+    </div>
+    <div>
+      <input type="number" [(ngModel)]="pageTotal" />
+    </div>
+  </div>
+  <div>
+    <button (click)="captureScreen()">
+      Capture Screen
+    </button>
+  </div>
+</div>
+
 
 <div id="content">
-  <app-receipt></app-receipt>
+  <app-receipt [receiptNum]="currReceiptNum"></app-receipt>
+  <app-receipt [receiptNum]="currReceiptNum + 1"></app-receipt>
 </div>

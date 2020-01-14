@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-receipt',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
+  @Input() receiptNum: number;
 
   constructor() { }
 

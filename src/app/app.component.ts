@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -9,23 +9,33 @@ import html2canvas from 'html2canvas';
 })
 export class AppComponent {
   title = 'pbys-receipts';
+  startNum = 200;
+  pageTotal = 1;
+  currReceiptNum = this.startNum;
 
-  captureScreen() {
-    const data = document.getElementById('content');
+  constructor(private changeRef: ChangeDetectorRef) {}
+
+  async captureScreen() {
     const settings = {
       scale: 2
     };
-    html2canvas(data, settings).then(canvas => {
-      const imgWidth = 215.9;
-      const pageHeight = 279.4;
-      const imgHeight = canvas.height * imgWidth / canvas.width;
-      const heightLeft = imgHeight;
+    const pdf = new jspdf('p', 'mm', 'letter');
+    const position = 0;
+    const imgWidth = 215.9;
 
+    for (let pageNum = 0; pageNum < this.pageTotal; pageNum++) {
+      const data = document.getElementById('content');
+      const canvas = await html2canvas(data, settings);
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      // const heightLeft = imgHeight;
       const contentDataURL = canvas.toDataURL('image/png');
-      const pdf = new jspdf('p', 'mm', 'letter');
-      const position = 0;
       pdf.addImage(contentDataURL, 'PNG', 2, position, imgWidth, imgHeight);
-      pdf.save('rawr.pdf');
-    });
+      pdf.addPage()
+      this.currReceiptNum += 2;
+      this.changeRef.detectChanges();
+    }
+
+    const endNum = this.startNum + (this.pageTotal * 2);
+    pdf.save(`receipts-${this.startNum}-${endNum}.pdf`);
   }
 }
