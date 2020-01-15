@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Goudy Old Style';
+  src: url(assets/fonts/goudy-old-style.ttf) format('truetype');
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Goudy Old Style';
+}
