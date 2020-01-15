@@ -35,7 +35,10 @@ export class AppComponent {
       this.changeRef.detectChanges();
     }
 
-    const endNum = this.startNum + (this.pageTotal * 2);
-    pdf.save(`receipts-${this.startNum}-${endNum}.pdf`);
+    pdf.save(`IPBYSP_receipts-${this.startNum}-${this.endNum}.pdf`);
+  }
+
+  get endNum(): number {
+    return this.startNum + (this.pageTotal * 2);
   }
 }
