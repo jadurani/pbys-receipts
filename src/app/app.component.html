@@ -1,38 +1,38 @@
 <div>
-  <div class="selection-container center-item">
-    <mat-card>
-      <mat-card-title>
-        Receipt Details
-      </mat-card-title>
-      <mat-card-content>
-        <div>
-          <mat-form-field>
-            <input type="number" matInput placeholder="Starting Receipt Number" min="200" [(ngModel)]="startNum" />
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input type="number" matInput placeholder="How many pages?" [(ngModel)]="pageTotal" />
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input type="number" disabled matInput placeholder="Ending Receipt Number" [(ngModel)]="endNum" />
-          </mat-form-field>
-        </div>
-        <div class="center-item">
-          <button mat-raised-button color="primary" (click)="captureScreen()">
-            Capture Screen
-          </button>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+<div class="selection-container center-item">
+  <mat-card>
+    <mat-card-title>
+      Receipt Details
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Starting Receipt Number" min="200" [(ngModel)]="startNum" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input type="number" matInput placeholder="How many pages?" min="1" [(ngModel)]="pageTotal" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input type="number" disabled matInput placeholder="Ending Receipt Number" [value]="endNum" />
+        </mat-form-field>
+      </div>
+      <div class="center-item">
+        <button mat-raised-button color="primary" [disabled]="processing" (click)="captureScreen()">
+          {{ captureBtnText }}
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
 
-  <div class="content-container">
-    <div id="content" class="preview-container">
-      <app-receipt [receiptNum]="currReceiptNum"></app-receipt>
-      <app-receipt [receiptNum]="currReceiptNum + 1"></app-receipt>
-    </div>
+<div class="content-container">
+  <div id="content" class="preview-container">
+    <app-receipt [receiptNum]="currReceiptNum"></app-receipt>
+    <app-receipt [receiptNum]="currReceiptNum + 1"></app-receipt>
   </div>
+</div>
 </div>
